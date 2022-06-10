@@ -270,7 +270,7 @@ async function connect(msg, mapKey) {
             'text_Channel': text_Channel,
             'voice_Channel': voice_Channel,
             'voice_Connection': voice_Connection,
-            'selected_lang': 'es',
+            'selected_lang': 'en',
             'debug': false,
         });
         speak_impl(voice_Connection, mapKey)
