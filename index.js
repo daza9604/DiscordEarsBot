@@ -259,7 +259,7 @@ discordClient.on('message', async (msg) => {
             
     
     //lo mio
-    
+    /*
     
     
     
@@ -819,7 +819,7 @@ discordClient.on('message', async (msg) => {
     
     
     
-    
+    */
     //lo mio
     
     
