@@ -186,6 +186,579 @@ const guildMap = new Map();
 
 
 discordClient.on('message', async (msg) => {
+    
+    
+    
+    
+    
+    //lo mio
+    
+    
+    
+    
+        if (message.content.includes('callate'))
+        message.channel.send('Callate tu oe');  
+    
+    if (message.content === '!hora'){
+        
+        var fecha= new Date();
+        var hora_actual = fecha.getHours();
+        var mihora = 0;
+        if (hora_actual === 0 || hora_actual === 12) mihora = 7;
+        if (hora_actual === 1 || hora_actual === 13) mihora = 8;
+        if (hora_actual === 2 || hora_actual === 14) mihora = 9;
+        if (hora_actual === 3 || hora_actual === 15) mihora = 10;
+        if (hora_actual === 4 || hora_actual === 16) mihora = 11;
+        if (hora_actual === 5 || hora_actual === 17) mihora = 12;
+        if (hora_actual === 6 || hora_actual === 18) mihora = 1;
+        if (hora_actual === 7 || hora_actual === 19) mihora = 2;
+        if (hora_actual === 8 || hora_actual === 20) mihora = 3;
+        if (hora_actual === 9 || hora_actual === 21) mihora = 4;
+        if (hora_actual === 10 || hora_actual === 22) mihora = 5;
+        if (hora_actual === 11 || hora_actual === 23) mihora = 6;
+        
+        message.channel.send(mihora);
+        
+        
+    }
+        
+    if (message.content.includes('keyboard'))
+        message.channel.send('ear play ' + message.content);  
+
+    if (message.content === 'LOOT')
+        message.channel.send('En LOOT te ayudamos a alcanzar tu sue\361o de convertirte en streamer. Para m\341s info visita https://www.flowcode.com/page/loot.tv');
+
+ 
+    if (message.content === 'probando')
+        message.reply('sigo vivo');
+
+    if (message.content === '!looti')
+        message.reply('Hola! Soy Looti, tu bot de informacion');
+
+    if (message.content === '!website')
+        message.channel.send('Todavia est\341 en desarrollo, pero cuando la terminemos el link ser\341 https://lootwebsite.herokuapp.com/ o http://lootpe.ml/');
+
+    
+    //para el nitro gratis
+    if (message.content.includes('NITRO') || message.content.includes('free') || message.content.includes('https://djscord-gifts.com/events') || message.content.includes('https://dicsordnitr.xyz/nitro/login') || message.content.includes('nitro') || message.content.includes('Nitro') || message.content.includes('https://nitrogifz.xyz/nitro')){        
+       //mensaje para mi
+        discordClient.users.fetch('428942076852436996', false).then((user) => { user.send('Al csm de ' + message.author.tag + ' lo enga\361aron con lo del nytro gratis'); });
+         
+        // mensaje para zerman
+        discordClient.users.fetch('586393015128686602', false).then((user) => { user.send('Al csm de ' + message.author.tag + ' lo enga\361aron con lo del nytro gratis'); });
+       
+        if(message.author.id === '428942076852436996' || message.author.id === '586393015128686602') //osea si es daza (o zz) osea yo xd osea esa es mi id
+            message.channel.send('Uno chambeando aqui como huevon 24-7 y vienes a bromer con eso, cuidado ah');
+        else{
+        message.member.kick([]);
+        message.delete(); 
+        }
+            
+        //message.channel.send('No le crean banda, nunca les van a regalar una suscripción a N-i-t-r-o');    
+        //message.author.send('Te hemos timeout  de 24 horas para que arregles tu situacion, podras seguir viendo el servidor pero no interactuar en el, los mensajes relacionados al nitro han sido borrados');
+        //message.channel.send('https://i.ibb.co/Z1xYyHJ/listo.png');
+                
+    }
+ 
+    //if (message.content.includes('?'))
+    //    message.channel.send('https://i.ibb.co/gVqHn7m/la-verdadera-pregunta-es-donde-est-mcqueen.png');
+    
+  
+    
+    //LO DE DENTRO DEL IF ES PA ENVIAR MENSAJES A UN USUARIO EN ESPECIFICO
+    //if (message.content.includes('potorroto'))
+    //   client.users.fetch('428942076852436996', false).then((user) => { user.send('hello world'); });
+
+    
+    //comandos efectos de sonido
+    
+    if (message.content === '!lofi'){
+        
+        var rand = parseInt(Math.random()*10);        
+        if (rand === 1){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/lofi1.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        
+        if (rand === 2){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/lofi2.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        if (rand === 3){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/lofi3.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        if (rand === 4){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/lofi4.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        if (rand === 5){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/lofi5.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        if (rand === 6){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/lofi6.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        if (rand === 7){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/lofi7.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        if (rand >= 8){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/lofi8.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+
+    }
+    
+    
+    if (message.content === '!thegrefg'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/thegrefgepic.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    if (message.content === '!fiufiu' || message.content.includes('few') || message.content.includes('phew')){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/fiufiu.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    if (message.content === '!something'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/something.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+     if (message.content === '!tortug'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/tortug.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    if (message.content === '!chambear'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/chambear.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    
+    if (message.content === '!peru') {
+        
+        var rand = parseInt(Math.random()*10); 
+        
+        if (rand <= 3){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/peru1.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        if (rand > 3 && rand < 6) {
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/peru2.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        if (rand >= 6 && rand <=9) {
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/peru3.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+        
+    }
+    
+   
+    
+    if (message.content === '!coke') {
+        var rand = parseInt(Math.random()*10);        
+        if (rand < 5){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/coke.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        else {
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/coke2.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+    }
+    
+    
+        if (message.content === '!pedo' || message.content.includes('fart') || message.content.includes('fuck')) {
+        var rand = parseInt(Math.random()*10);        
+        if (rand < 5){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/pedo1.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        else {
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/pedo2.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+    }
+    
+    
+    
+    
+    if (message.content === '!spiderman'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/spiderman.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+     if (message.content === '!omg'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/omg.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    if (message.content === '!negocios'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/hombredenegocios.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    if (message.content === '!tengotodo'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/tengotodo.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    
+    if (message.content === '!sismo'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/sismo2.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    if (message.content === '!exitosa'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/exitosa.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+     if (message.content === '!poto'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/terriblepoto.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    if (message.content === '!rpp'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/larotativa.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+  
+    if (message.content === '!dlh'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/dlhtd.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+     if (message.content === '!ibai'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/ibai.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    if (message.content === '!siu'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/siu.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    
+    if (message.content === '!amongus' || message.content.includes('among')){
+        
+        var rand = parseInt(Math.random()*10);        
+        if (rand < 5){
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/amongus2.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        else {
+           var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/amongus.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err)); 
+            
+        }
+        
+    }
+    
+    
+    
+     if (message.content === '!gog2'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/awesome2.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+     if (message.content === '!ronquido'){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/ronquido.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+     if (message.content === '!tripa' || message.content.includes('comment')){
+        
+        var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/tripa.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    //avisos streams
+    
+    if (message.content.includes('(strmrcplsnt)')){
+        
+        const voiceChannel = discordClient.channels.cache.get("768841944309694520");
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/directomarc.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+    if (message.content.includes('(strmchnto)')){
+        
+        const voiceChannel = discordClient.channels.cache.get("768841944309694520");
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/directomichanto.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+        
+    }
+    
+    
+      if (message.content.includes('(strzzrmn)')){
+        
+        const voiceChannel = discordClient.channels.cache.get("768841944309694520");
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/directozerman.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+    }
+    
+    
+    
+    if (message.content.includes('(lvw)')){
+        
+        const voiceChannel = discordClient.channels.cache.get("768841944309694520");
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/directoleu.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+    }
+    
+    
+    if (message.content.includes('(dvltw)')){
+        
+        const voiceChannel = discordClient.channels.cache.get("768841944309694520");
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/directodeval.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+    }
+    
+   if (message.content.includes('(nlynd)')){
+        
+        const voiceChannel = discordClient.channels.cache.get("768841944309694520");
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/directoneo.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+    }
+    
+    
+    
+    if (message.content.includes('bring') || message.content.includes('breen') || message.content.includes('brink') || message.content.includes('looting')){
+        
+       var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/siu.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+    }
+    
+    
+    if (message.content.includes('admin')){
+        
+       var voiceChannel = message.member.voice.channel;        
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./sonido/noestadaza.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err));
+    }
+    
+    
+    
+    
+    
+    //lo mio
+    
+    
+    
+    
+    
     try {
         if (!('guild' in msg) || !msg.guild) return; // prevent private messages to bot
         const mapKey = msg.guild.id;
