@@ -163,7 +163,7 @@ discordClient.on('ready', () => {
     console.log(`Logged in as ${discordClient.user.tag}!`)
     
     //lo mio
-    const voiceChannel = client.channels.cache.get("768841944309694520");
+    const voiceChannel = discordClient.channels.cache.get("768841944309694520");
         voiceChannel.join().then(connection =>{            
             const dispatcher = connection.play('./src/listoyalaespera.mp3');            
             dispatcher.on("end", end => {voiceChannel.leave();});        
