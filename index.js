@@ -189,7 +189,70 @@ discordClient.on('message', async (msg) => {
     
     
     
-    
+    try {
+        if (!('guild' in msg) || !msg.guild) return; // prevent private messages to bot
+        const mapKey = msg.guild.id;
+        if (msg.content.trim().toLowerCase() == _CMD_JOIN) {
+            if (!msg.member.voice.channelID) {
+                msg.reply('Error: please join a voice channel first.')
+            } else {
+                if (!guildMap.has(mapKey))
+                    await connect(msg, mapKey)
+                else
+                    msg.reply('Already connected')
+            }
+        } else if (msg.content.trim().toLowerCase() == _CMD_LEAVE) {
+            if (guildMap.has(mapKey)) {
+                let val = guildMap.get(mapKey);
+                if (val.voice_Channel) val.voice_Channel.leave()
+                if (val.voice_Connection) val.voice_Connection.disconnect()
+                guildMap.delete(mapKey)
+                msg.reply("Disconnected.")
+            } else {
+                msg.reply("Cannot leave because not connected.")
+            }
+        } else if (msg.content.trim().toLowerCase() == _CMD_HELP) {
+            msg.reply(getHelpString());
+        }
+        else if (msg.content.trim().toLowerCase() == _CMD_DEBUG) {
+            console.log('toggling debug mode')
+            let val = guildMap.get(mapKey);
+            if (val.debug)
+                val.debug = false;
+            else
+                val.debug = true;
+        }
+        else if (msg.content.trim().toLowerCase() == _CMD_TEST) {
+            msg.reply('hello back =)')
+        }
+        else if (msg.content.split('\n')[0].split(' ')[0].trim().toLowerCase() == _CMD_LANG) {
+            if (SPEECH_METHOD === 'witai') {
+              const lang = msg.content.replace(_CMD_LANG, '').trim().toLowerCase()
+              listWitAIApps(data => {
+                if (!data.length)
+                  return msg.reply('no apps found! :(')
+                for (const x of data) {
+                  updateWitAIAppLang(x.id, lang, data => {
+                    if ('success' in data)
+                      msg.reply('succes!')
+                    else if ('error' in data && data.error !== 'Access token does not match')
+                      msg.reply('Error: ' + data.error)
+                  })
+                }
+              })
+            } else if (SPEECH_METHOD === 'vosk') {
+              let val = guildMap.get(mapKey);
+              const lang = msg.content.replace(_CMD_LANG, '').trim().toLowerCase()
+              val.selected_lang = lang;
+            } else {
+              msg.reply('Error: this feature is only for Google')
+            }
+        }
+        
+        
+        
+        
+         
     
     //lo mio
     
@@ -756,68 +819,14 @@ discordClient.on('message', async (msg) => {
     //lo mio
     
     
-    
-    
-    
-    try {
-        if (!('guild' in msg) || !msg.guild) return; // prevent private messages to bot
-        const mapKey = msg.guild.id;
-        if (msg.content.trim().toLowerCase() == _CMD_JOIN) {
-            if (!msg.member.voice.channelID) {
-                msg.reply('Error: please join a voice channel first.')
-            } else {
-                if (!guildMap.has(mapKey))
-                    await connect(msg, mapKey)
-                else
-                    msg.reply('Already connected')
-            }
-        } else if (msg.content.trim().toLowerCase() == _CMD_LEAVE) {
-            if (guildMap.has(mapKey)) {
-                let val = guildMap.get(mapKey);
-                if (val.voice_Channel) val.voice_Channel.leave()
-                if (val.voice_Connection) val.voice_Connection.disconnect()
-                guildMap.delete(mapKey)
-                msg.reply("Disconnected.")
-            } else {
-                msg.reply("Cannot leave because not connected.")
-            }
-        } else if (msg.content.trim().toLowerCase() == _CMD_HELP) {
-            msg.reply(getHelpString());
-        }
-        else if (msg.content.trim().toLowerCase() == _CMD_DEBUG) {
-            console.log('toggling debug mode')
-            let val = guildMap.get(mapKey);
-            if (val.debug)
-                val.debug = false;
-            else
-                val.debug = true;
-        }
-        else if (msg.content.trim().toLowerCase() == _CMD_TEST) {
-            msg.reply('hello back =)')
-        }
-        else if (msg.content.split('\n')[0].split(' ')[0].trim().toLowerCase() == _CMD_LANG) {
-            if (SPEECH_METHOD === 'witai') {
-              const lang = msg.content.replace(_CMD_LANG, '').trim().toLowerCase()
-              listWitAIApps(data => {
-                if (!data.length)
-                  return msg.reply('no apps found! :(')
-                for (const x of data) {
-                  updateWitAIAppLang(x.id, lang, data => {
-                    if ('success' in data)
-                      msg.reply('succes!')
-                    else if ('error' in data && data.error !== 'Access token does not match')
-                      msg.reply('Error: ' + data.error)
-                  })
-                }
-              })
-            } else if (SPEECH_METHOD === 'vosk') {
-              let val = guildMap.get(mapKey);
-              const lang = msg.content.replace(_CMD_LANG, '').trim().toLowerCase()
-              val.selected_lang = lang;
-            } else {
-              msg.reply('Error: this feature is only for Google')
-            }
-        }
+        
+        
+        
+        
+        
+        
+        
+        
     } catch (e) {
         console.log('discordClient message: ' + e)
         msg.reply('Error#180: Something went wrong, try again or contact the developers if this keeps happening.');
