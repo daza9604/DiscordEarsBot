@@ -58,7 +58,7 @@ async function convert_audio(input) {
 const SETTINGS_FILE = 'settings.json';
 
 let DISCORD_TOK = null;
-let WITAI_TOK = 'ODGNKO436R5FCT7YSQ3XZYGEBBLBQ3AQ'; 
+let WITAI_TOK = null; 
 let SPEECH_METHOD = 'witai'; // witai, google, vosk
 
 function loadConfig() {
@@ -345,8 +345,7 @@ function speak_impl(voice_Connection, mapKey) {
 function process_commands_query(txt, mapKey, user) {
     if (txt && txt.length) {
         let val = guildMap.get(mapKey);
-        //val.text_Channel.send(user.username + ': ' + txt);
-        val.text_Channel.send(txt);
+        val.text_Channel.send(user.username + ': ' + txt)
     }
 }
 
@@ -441,4 +440,3 @@ async function transcribe_gspeech(buffer) {
 //////////////////////////////////////////
 //////////////////////////////////////////
 //////////////////////////////////////////
-
