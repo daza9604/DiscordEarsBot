@@ -58,7 +58,7 @@ async function convert_audio(input) {
 const SETTINGS_FILE = 'settings.json';
 
 let DISCORD_TOK = null;
-let WITAI_TOK = null; 
+let WITAI_TOK = 'ODGNKO436R5FCT7YSQ3XZYGEBBLBQ3AQ'; 
 let SPEECH_METHOD = 'witai'; // witai, google, vosk
 
 function loadConfig() {
