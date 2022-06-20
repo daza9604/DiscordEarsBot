@@ -158,7 +158,19 @@ const discordClient = new Discord.Client()
 if (process.env.DEBUG)
     discordClient.on('debug', console.debug);
 discordClient.on('ready', () => {
+    
+    
     console.log(`Logged in as ${discordClient.user.tag}!`)
+    
+    //lo mio
+    const voiceChannel = client.channels.cache.get("768841944309694520");
+        voiceChannel.join().then(connection =>{            
+            const dispatcher = connection.play('./src/listoyalaespera.mp3');            
+            dispatcher.on("end", end => {voiceChannel.leave();});        
+        }).catch(err => console.log(err))
+    //lo mio
+    
+    
 })
 discordClient.login(DISCORD_TOK)
 
